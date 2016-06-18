@@ -9,7 +9,7 @@ layout: default
     {% for nav in site.nav %}
     <a href="{{ nav.href }}">{{ nav.name }}</a>
     {% endfor %}
-    {% for nav in site.devnav %}
+    {% for nav in site.photonav %}
     <a href="{{ nav.href }}">{{ nav.name }}</a>
     {% endfor %}
   </nav>
@@ -19,7 +19,7 @@ layout: default
   <h2>No post found</h2>
 {% else %}
 {% for post in site.posts %}
-{% if post.category == "dev" %}
+{% if post.category == "photo" %}
   <div class="list-item">
     <h2 class="list-post-title">
         <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
