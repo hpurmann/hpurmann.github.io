@@ -1,0 +1,82 @@
+==================================================================
+https://keybase.io/hpurmann
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://hpurmann.com
+  * I am hpurmann (https://keybase.io/hpurmann) on keybase.
+  * I have a public key with fingerprint 6A01 07D1 092D CEDB 1D86  CD29 1DEA E150 28C7 B5AE
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.7"
+        },
+        "key": {
+            "fingerprint": "6a0107d1092dcedb1d86cd291deae15028c7b5ae",
+            "host": "keybase.io",
+            "key_id": "1DEAE15028C7B5AE",
+            "uid": "a9edb84ddf05842f8d5c121241ea9519",
+            "username": "hpurmann"
+        },
+        "merkle_root": {
+            "ctime": 1427751405,
+            "hash": "1fddfa95244c1e65982c0fee9b9df59ba8b587a1056f6311e0a3efd34be2fd1bee85cf1a3093d77b47dd93eff58fe00beb27e41036ec640edeb097d9622eb5fa",
+            "seqno": 186575
+        },
+        "service": {
+            "hostname": "hpurmann.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1427751627,
+    "expire_in": 157680000,
+    "prev": "026e510ed3b9bd2148c88767df193c390ae902b1d5ade67c1062f5dcd8c6a57e",
+    "seqno": 2,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Comment: GPGTools - https://gpgtools.org
+
+owFdkn1QVFUYxtEAZY1cRQtIG2bHSXI2POfs/YSk+KqxdGQaaUA+1nvvOXe5AXvX
+u4uCQA7aOIOaGgaYUNCkGSKkCzjZ4FQIYgMWX6IImVrrV9MoWzaWpt3L0JSdv+65
+7+887/Oc8+4OfSzANG3hzcup0T3tLdN6b4gBaRGdvSUWUcXFltgSi5SvEKfH+HIK
+BcQSa8kjxaLgJjGKGuVUMYl50x01xVgt64nmVlSnToEYNoa1lFkN3DgsK04H0Vya
+YmhZGAFAwGIIeIQlgkWIOUbCiIeYCATSAHESK9IC0SVzVbfnka6WSU27gvW/MDkl
+IWWST2IT6YQUvVY4WRB4XZWjMJYBzVFI5jAtQQQRBYnA05A3QDfRpiLlugq1AsHp
+NPwWEC0vn9g1VZ0MLXkUA4EUYlkaUoDWHQnuXKO3rKvrYoiiJEgYmueQBGRCeJHH
+Ms2LAifSHCtAQDMyY4OQAMFGZGyjRIJkDEVCOFqSoWADvA2zrEixGPM6IdOcTAAQ
+iYhYQkFgY4jEUIBgIgKexTyDEBFpWdAjuMk6p6qb4xiapcuMvbZekYjh27i2/6WL
+kdQC/ZBLUz2qpOYbFY/HFWuE9hS7DHIDEe3NUyJ2UXFi/dH++6pQRx+9EAaxVgsp
+cikasSsGQbMMB/Rl9CHrjUFADKGhbt8m8iJGkOIkjmMZFsuQt0k2HgiEB0ifAFrA
+hGElCBgk01jCnMQINEv+jYl0n4JDl3QrDqfgKdSIpaxi+oLAgGmmgOCg6cbYBphC
+zP/McvfK2Q8Wz3CoIXLavN9Wgz5weoU56MvyqBZvPXc883X770HLPVljleW15VI6
+qpu9efDPfaVr/Ofh4yS269DiHl912pa7blNW6nBtRnX8DvHqRPuuA2/89en4umth
+tStOJF84D8KSo7vh1v6b3yxFDY3aYH/TjxtfkTtRbttPI+2BVS2epDkN+6Pkkb49
+tfPeL6ub/2RYc5ZrbcI9q2d7lLnSfuTtsGYu4tgP2Wj/O6e9m0paoxbt3Hq468Si
+yjNvPf8y6Dq5+cAMe6C7re1M/YO1GSEZy4O/i5/bNhq5ILRjLKH78oc9Gy+tuVqy
+L/WXig1H/UXXn5Aav2ituVM2mrRDugZ9u6pHl5rS3huf+XTFRH7ioXOzONft0Gjm
+7icNI3tjPxr4rF81Vw1dmBU8nOLsyHTcW7bq7nh/XGui/zB1/4qS/ewzEVteeq0+
+J77x4Paci8dmfkDv80WcHV/SmHh/LHOgPLY+vepIvnX+jYKO0iO38oo+3qsF3nac
+KTpuXjaCrwb7k5pO+CP933v7Tt25OGd3d4V3bsvIIDqVfXklE328NexoKffc3Bc+
+X6X6ZsS/ax1Kfhie09xrmvBtMw03/6oN9X7tf1iTvtP8lDd59c9Xwgdqzn1VvKcV
+0R1LQm3hvhdtTQOH6jr7ihfElfdVLjwrV558NdIO4o5lJMjeS1JN7rY/Nt263nmH
+zzn4bd3f
+=YLBu
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/hpurmann
+
+==================================================================
