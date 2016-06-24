@@ -9,6 +9,22 @@
     margin-left: 20px;
 }
 
+.authorbox {
+    border-top: 1px solid #ddd;
+    padding-top: 1em;
+}
+
+.authorbox--author {
+    font-weight: bold;
+    margin-bottom: 0
+}
+
+.authorbox--description {
+    
+}
+
+// ---
+
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
