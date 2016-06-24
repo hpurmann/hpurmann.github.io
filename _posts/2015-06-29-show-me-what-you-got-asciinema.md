@@ -9,7 +9,7 @@ comments: true
 
 Ever wanted to show someone your terminal output?
 
-Lately I've found myself wanting that. As I was writing the [speed comparison between vim and neovim with corresponding plugins](http://hpurmann.com/2015/06/16/neovim-asynchronous-linting/) it was clear to me that a visual representation would be really helpful.
+Lately I've found myself wanting that. As I was writing the [speed comparison between vim and neovim with corresponding plugins]({% post_url 2015-06-16-neovim-asynchronous-linting %}) it was clear to me that a visual representation would be really helpful.
 
 So I chose the obvious solution – animated gifs. Sadly, there is always the trade-off between small size and high quality and I needed several attempts to record them.
 

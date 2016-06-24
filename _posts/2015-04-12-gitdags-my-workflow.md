@@ -5,7 +5,7 @@ category: "dev"
 comments: true
 ---
 
-As I [wrote in my last post](http://hpurmann.com/2015/04/05/gitdags/), I like to
+As I [wrote in my last post]({% post_url 2015-04-05-gitdags %}), I like to
 use the LaTeX package `gitdags` when a visual representation of an exemplary git
 graph is needed.
 

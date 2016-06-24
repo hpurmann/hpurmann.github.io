@@ -13,7 +13,7 @@ Have you heard of these crypto key signing *parties* where a few nerds meet, che
 
 Keybase is not trying to replace the Web of Trust but enhance it with the approach of online identities instead of government documents.
 
-From the [Keybase docs](https://keybase.io/docs/tracking):
+From the [Keybase docs](https://keybase.io/docs/server_security/tracking):
 
 > Keybase aims to provide public keys that can be trusted without any backchannel communication. If you need someone's public key, you should be able to get it, and know it's the right one, without talking to them in person.
 
