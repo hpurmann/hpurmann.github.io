@@ -14,7 +14,7 @@ My brother registered as well and his girlfriend joined to keep company with us.
 
 The lens manufacturer Tamron was the main partner of this year's marathon. They brought a selection of lenses which one could use for the day – free of charge. I decided to try the 35mm F/1.8.
 
-At 11am, the overall topic "Beyond limits" and the first four subtopics were announced. The crowd split up, the journey began. We decided to start the competition with a break. I took a few shots with the borrowed Tamron lens while having a coffee. Both were great.
+At 11am, the overall topic "Beyond limits" and the first four themes were announced. The crowd split up, the journey began. We decided to start the competition with a break. I took a few shots with the borrowed Tamron lens while having a coffee. Both were great.
 
 ## 01 – To outgrow oneself
 
@@ -32,7 +32,7 @@ For this one, I didn't want to go for the most obvious idea: A person walking pa
 
 ![Fotomarathon 03](/assets/fotomarathon/marathon-03.jpg)
 
-At 3pm, we arrived at the second station to collect the next four topics. While waiting, I took a few portraits of Sophie. Suddenly, one of us had the idea to cover the eyes with her hair. I focussed her teeth and was pleased with the blurred brick wall background. Third photo done.
+At 3pm, we arrived at the second station to collect the next four themes. While waiting, I took a few portraits of Sophie. Suddenly, one of us had the idea to cover the eyes with her hair. I focussed her teeth and was pleased with the blurred brick wall background. Third photo done.
 
 ## 04 – On the other side of the fence
 
@@ -44,7 +44,7 @@ I was on my way to get a carsharing car when I found this building with a painte
 
 ![Fotomarathon 05](/assets/fotomarathon/marathon-05.jpg)
 
-We took the car to get to Kreuzberg since it sounded like a good fit for the next topics. We noticed that we were somewhat behind. Catching up before arriving at the 7pm station was important to us, knowing that it will be pretty dark past 9:30pm.
+We took the car to get to Kreuzberg since it sounded like a good fit for the next themes. We noticed that we were somewhat behind. Catching up before arriving at the 7pm station was important to us, knowing that it will be pretty dark past 9:30pm.
 
 When faced with these time limits, two cranes having the same angle was enough for me to be considered good neighbourship.
 
@@ -70,7 +70,7 @@ I found a cigarette on the floor. "Not kissing a smoker? Too cliché!" came to m
 
 ![Fotomarathon 09](/assets/fotomarathon/marathon-09.jpg)
 
-We got the last four topics in a beer garden at 7pm. I felt exhausted already. People around us were having a beer, watching the EM game between Wales and Slovakia. We decided to go back to Kreuzberg once again. When we crossed the Oberbaumbrücke, it appeared to be the perfect place.
+We got the last four themes in a beer garden at 7pm. I felt exhausted already. People around us were having a beer, watching the EM game between Wales and Slovakia. We decided to go back to Kreuzberg once again. When we crossed the Oberbaumbrücke, it appeared to be the perfect place.
 
 ## 10 – Parallel universe
 
@@ -90,10 +90,10 @@ I wish I had a wide angle lens to get more of the beautiful sky with its dark cl
 
 ![Fotomarathon 12](/assets/fotomarathon/marathon-12.jpg)
 
-I got really lucky here. We were pondering over this topic some time already when I stumbled accross this buggy. I can imagine the child saying "Mom, there are limits!" when seing how she is using his vehicle.
+I got really lucky here. We were pondering over this theme some time already when I stumbled accross this buggy. I can imagine the child saying "Mom, there are limits!" when seing how she is using his vehicle.
 
 ## Exhausted but happy
 
-We went to the final station and submitted the competition photos. I felt very tired but a cold beer gave back some energy. Sitting at the fire, we chatted with competitors and saw their pictures. It's nice how everybody has different interpretations of the given topics. I'll certainly participate again next year.
+We went to the final station and submitted the competition photos. I felt very tired but a cold beer gave back some energy. Sitting at the fire, we chatted with competitors and saw their pictures. It's nice how everybody has different interpretations of the given themes. I'll certainly participate again next year.
 
 And now, I invite you to [look at my brother's photo series](http://ununun.de/post/145914151126/my-first-fotomarathon). Even though we were doing the marathon together, his series looks very different.
