@@ -25,7 +25,7 @@ photonav:
 
 devnav:
   - name:           "photography"
-    href:           "../photo"
+    href:           "../photography"
 
 # Sass
 sass:
