@@ -46,6 +46,6 @@ defaults:
     values:
       layout:       "post"
 
-gems:
+plugins:
   - jekyll-seo-tag
   - jekyll-gist
