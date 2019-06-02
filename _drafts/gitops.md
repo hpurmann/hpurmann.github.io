@@ -66,7 +66,12 @@ This is not easy with Flux right now because environments are static. Our curren
 and manually promote this to production.
 On a side note, [Jenkins X](https://jenkins.io/projects/jenkins-x/) claims to solve this by dynamically creating environments and automate their promotion.
 
+## Conclusion
 
-<!--
+Operations work doesn't need to be scary. Kubernetes provides the necessary means to deploy and manage all kinds of applications.
+It's great to see it becoming the industry standard.
 
--->
+The GitOps approach of describing the cluster state in a git repository is quite useful.
+It enables [operations by pull requests](https://www.weave.works/blog/gitops-operations-by-pull-request) and provides an easy way for rollbacks.
+Moreover, knowing that the current live state is always visible in a git repository makes operations transparent on an organizational level. 
+We saw good adoption among development teams which made it easier to build cross-functional teams.
