@@ -13,7 +13,7 @@ many of which are open source.
 
 One of those options is [Vault by HashiCorp](https://www.vaultproject.io/). It is probably the most popular one.
 Vault stores secrets in a tree-like structure, allowing fine-grained policy definitions.
-It supports authentication over GitHub and there are [plugins for Jenkins](https://github.com/jenkinsci/hashicorp-vault-plugin) availabe so that Jobs can retrieve secrets.
+It supports authentication over GitHub and there are [plugins for Jenkins](https://github.com/jenkinsci/hashicorp-vault-plugin) available so that Jobs can retrieve secrets.
 
 ## kubernetes-vault
 
@@ -77,7 +77,7 @@ Because only the cluster has the private key to unseal, changes made to the seal
 Moreover, thanks to a [session key](https://github.com/bitnami-labs/sealed-secrets#details) used during the encryption process, the sealed result is different on each invocation.
 This further complicates code reviews. In my team, we found agreement to avoid unnecessary re-seals.
 
-[Mozilla's SOPS](https://github.com/mozilla/sops) solves this by allowing multiple keypairs where one of them is readable from the developers machine. This approach seems worth looking at.
+[Mozilla's SOPS](https://github.com/mozilla/sops) solves this by allowing multiple key pairs where one of them is readable from the developers machine. This approach seems worth looking at.
 
 Another issue is related to the rotation of secrets: Because there is no direct connection from the user of a secret to the secret store, automated secret rotation is not easily achievable.
 
