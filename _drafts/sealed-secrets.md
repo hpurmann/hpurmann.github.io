@@ -13,46 +13,108 @@ many of which are open source.
 
 One of those options is [Vault by HashiCorp](https://www.vaultproject.io/). It is probably the most popular one.
 Vault stores secrets in a tree-like structure, allowing fine-grained policy definitions.
-It allows authentication over GitHub and there are [plugins for Jenkins](https://github.com/jenkinsci/hashicorp-vault-plugin) availabe to fetch secrets in Jobs.
-<!--TODO: Un-comment?-->
-<!--We mostly used these to inject secrets into container environments in deployments.-->
+It supports authentication over GitHub and there are [plugins for Jenkins](https://github.com/jenkinsci/hashicorp-vault-plugin) availabe so that Jobs can retrieve secrets.
 
-When [we started using Kubernetes]({% post_url 2019-06-02-gitops %}),
+## kubernetes-vault
+
+When [we started using Kubernetes]({% post_url 2019-06-02-gitops %}), we searched for a solution to populate our secrets from Vault.
+First, we tried [Boostport's kubernetes-vault controller](https://github.com/Boostport/kubernetes-vault).
+It watches for new pods with a certain annotation and expects them to have a special init container defined.
+As we rolled this out to more deployments, we realized how cumbersome this approach actually is:
+* Each deployment needs an additional init container, a volumes and volume mount. There is a lot of copy-pasting involved.
+* It creates a runtime dependency on Vault. Because our Vault deployment was not highly available it created a single point of failure.
+
+## Sealed secrets
+
+At that time we read about GitOps and [Weaveworks' recommendation](https://www.weave.works/blog/storing-secure-sealed-secrets-using-gitops) to use [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets).
+The idea is pretty simple: You locally encrypt your secrets with a public key and only the cluster has the private key to decrypt them.
+A custom resource definition `SealedSecret` is introduced. The sealed-secrets controller lives in its own namespace and watches for these definitions.
+It transparently decrypts the `SealedSecret` and creates a `Secret` with the same name and namespace.
+
+![Sealed secrets usage](/assets/sealed-secrets/sealed-secrets-usage.png "Sealed secrets usage")
+
+This approach allows you to store encrypted secrets in version control. It is similar to how [Travis CI solves adding secret environment variables](https://docs.travis-ci.com/user/encryption-keys).
+Both aforementioned problems are solved by it:
+* Each deployment can expect secret resources to be there and reference them by name.
+* Deployments are independent of the availability of Vault.
+
+But how do we transform vault secret values into sealed secrets? Let's look at that next.
+
+## Sealed secrets workflow
+
+Inspired from [Helm](https://helm.sh/) and its usage of Go templates, my colleague [Thomas Rucker](https://github.com/thrucker) wrote a [Go template function to fetch secrets from Vault, `vault-template`](https://github.com/actano/vault-template).
+Using this, we are able to write secret template files such as this:
+
+{% raw %}
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+  namespace: production
+type: Opaque
+data:
+  config.yml: |
+    database:
+      admin_username: {{ vault "secret/database" "username" }}
+      admin_password: {{ vault "secret/database" "password" }}
+```
+{% endraw %}
+
+The `vault` template function will fetch the secret in `secret/database` and get its fields `username` and `password` respectively.
+Sealing this secret is just a matter of invoking `kubeseal`, the CLI for sealed secrets.
+
+
+To make this process easier for the dev teams we wrote a small wrapper which also preserves existing folder structures.
+The first draft was [a bash script](https://gist.github.com/hpurmann/fa5bcfc5c3ac392cf8ef6a4d9a7f48b6) which we later transformed [into a helm plugin](https://github.com/actano/helm-sealed-secrets).
+
+![Sealed secrets rendering](/assets/sealed-secrets/sealed-secrets-render.png "Sealed secrets rendering")
+<div class="caption">From secret template to rendered sealed secret</div>
+
+## Learnings
+
+Because only the cluster has the private key to unseal, changes made to the sealed representation are not reviewable.
+Moreover, thanks to a [session key](https://github.com/bitnami-labs/sealed-secrets#details) used during the encryption process, the sealed result is different on each invocation.
+This further complicates code reviews. In my team, we found agreement to avoid unnecessary re-seals.
+
+[Mozilla's SOPS](https://github.com/mozilla/sops) solves this by allowing multiple keypairs where one of them is readable from the developers machine. This approach seems worth looking at.
+
+Another issue is related to the rotation of secrets: Because there is no direct connection from the user of a secret to the secret store, automated secret rotation is not easily achievable.
+
+## Conclusions
+
+Sealed secrets allow us to follow through on the GitOps approach and keep all of our configuration in a git repository.
+Even though the future of this project [is not clear right now](https://github.com/bitnami-labs/sealed-secrets/issues/165) I certainly hope it continues to grow and be maintained.
 
 <!--
-## Sealed secrets
+{% raw %}
+```yaml
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: mysecret
+  namespace: production
+spec:
+  encryptedData:
+    config.yml: AgBbbYUFeLHVlLrIh6rXb/VUTohTX+twTOst8fcfyV6csX8P0JGSmVuNuQ/0uTM4MxuCtiHO59x3DbdIcOZ78FZmVlPsmEd8LrpW3rP72DmT0T4dQDT7jvG/n5v42knBgNo5Oi9MeoBhzQDxQrRJxvhOhzake8i04yrXxFJebkIiJwpA0DTXlJI5QeyB2iNVnr+XmsPFuYxuJ2i7t4YJVlEm6QO6k0W584CKreWcWgt8fgW ...
+```
+{% endraw %}
+-->
 
-Story:
-* Move to Kubernetes (link gitops blog post): Secrets are stored in base64: encoded, not encrypted
-* Runtime dependency on Vault, cumbersome init container needed: https://github.com/actano/kubernetes-vault-init
-* I usually like to solve the problem at hand with a simple solution, only considering more complex ones if needed
-
-## Sealed secrets
-* When reading about GitOps we saw their recommendation of Sealed secrets (link blog article)
-* Interface is the secret name
-* [Mozillas sops](https://github.com/mozilla/sops) follows a similar
-* Compare to how Travis CI allows encrypted secrets in their configuration
-
+<!--
+Additional:
 * We forked [Vault on GKE](https://github.com/sethvargo/vault-on-gke) to set up Vault on Kubernetes
 
-* Helm template idea
-* Vault-on-gke
-
-* Sealed secrets provide static secrets, no vault connection on runtime needed.
-* "Renders" secret templates and seal
-
-* Secrets should not be committed into git
-* Secrets are base64 plain-text
-* Draft for encryption at rest (link and explain concept in new kubernetes versions)
 * Store secrets in git
 * Secret source (template, vault) to secret representation (sealed), to secret deployment (unseal on server)
     * => Diagram
 * Example repository
+* [Mozillas sops](https://github.com/mozilla/sops) follows a similar
+* vault-template travis build
 
 ## Findings
-* Drawback of sealed secrets: Diffs in git are not reviewable. Since only the cluster has the private key, only it can know the secret's content.
-Moreover, thanks to a session key (link) the sealed reprensentation.
-This means that sealing the same secret again will yield a different result. While this is more secure (WHY?), it also makes reviewing changes harder.
-Right now we agreed to avoid unnecessary re-seals.
+
+* Rolling secrets is a manual process. While making deployments easier we make
 -->
 
