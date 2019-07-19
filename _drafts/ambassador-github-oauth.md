@@ -5,7 +5,6 @@ category: "dev"
 comments: true
 ---
 
-
 Operating web applications can be complicated. Luckily, a number of open source tools are available today to make our lives easier.
 They give insights into deployed systems by providing solutions for logging, monitoring, distributed tracing and visualization.
 
@@ -44,17 +43,86 @@ spec:
 
 This configuration will expose `my-service` on `https://api.example.com/my-service`, given that the ambassador instance `production-gateway` is exposed on that particular domain.
 
-## Authorization service
+## Authentication and authorization service
 
+Ambassador provides a [flexible mechanism to provide custom authorization](https://www.getambassador.io/reference/services/auth-service/) for your API. All requests must pass through this service before they reach their intended destination. A `200 OK` response from the `AuthService` indicates successful authentication and makes Ambassador forward it to the actual service.
+
+
+```yaml
+annotations:
+  getambassador.io/config: |
+    ---
+    apiVersion: ambassador/v1
+    kind: AuthService
+    name: authentication
+    ambassador_id: internal-gateway
+    auth_service: "ambassador-github-oauth.internal-gateway:3000"
+    proto: http
+    ---
+    apiVersion: ambassador/v1
+    kind: Mapping
+    name: login_mapping
+    ambassador_id: internal-gateway
+    prefix: /auth/login
+    rewrite: /auth/login
+    service: ambassador-github-oauth.internal-gateway:3000
+    bypass_auth: true
+```
+
+Notice the `bypass_auth` directive to disable authentication for requests to the `/auth/login` route.
+
+Because nothing similar existed, we wrote a small service which provides [GitHub OAuth2 authentication for Ambassador](https://github.com/actano/ambassador-github-oauth).
+We deployed a separate Ambassador instance named `internal-gateway` and exposed it on a `internal.yourdomain.com` domain.
+A GitHub OAuth App is registered to point to this domain.
+
+[Certmanager](https://github.com/jetstack/cert-manager) manages automatic certificate issuance and renewals:
+```yaml
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: internal-gateway-tls
+  namespace: internal-gateway
+spec:
+  secretName: internal-gateway-tls
+  dnsNames:
+    - internal.yourdomain.com
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  acme:
+    config:
+      - dns01:
+          provider: <dns-provider-name>
+        domains:
+          - internal.yourdomain.com
+```
+
+## Exposing internal services
+
+With the above in place, all development teams could expose their internal services with minimal configuration:
+```yaml
+annotations:
+  getambassador.io/config: |
+    ---
+    apiVersion: ambassador/v1
+    kind: TLSContext
+    name: grafana_context
+    ambassador_id: internal-gateway
+    hosts:
+    - grafana.yourdomain.com
+    secret: grafana-tls.monitoring
+    ---
+    apiVersion: ambassador/v1
+    kind: Mapping
+    name: grafana_mapping
+    ambassador_id: internal-gateway
+    host: grafana.yourdomain.com
+    prefix: /
+    service: monitoring-grafana.monitoring:80
+```
 
 <!--
-* We tried [oauth2_proxy]()
-* oauth2_proxy: Not maintained, separate installation for each exposed service (link to blog article with the nginx idea)
-* Ambassador API gateway:
-* [flexible authentication mechanism](https://www.getambassador.io/reference/services/auth-service/)
-
-* Grafana, Kibana, Prometheus, Alertmanager,
-
+TODO: Make umbrella chart public, link it here
 
 ## Findings
 * Only one authentication mechanism supported. Not possible to deploy application internally by using oauth for internal access protection + application auth
