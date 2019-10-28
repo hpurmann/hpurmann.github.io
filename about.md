@@ -5,7 +5,7 @@ permalink: /about/
 
 <img src="/assets/about.jpg" style="border-radius: 5px" alt="It's me">
 
-My name is Hendrik Purmann, I'm a Berlin-based software engineer, currently working for [Actano](https://rplan.com).
+My name is Hendrik Purmann, I'm a Berlin-based software engineer, currently working for [Actano](https://allex.ai).
 
 I love creating software which solves real-world problems. The field is always evolving, there is so much to learn.
 Being able to work from anywhere in the world is liberating.
