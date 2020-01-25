@@ -2,7 +2,6 @@
 layout: post
 title: Show me what you got – in your terminal
 category: "dev"
-comments: true
 ---
 
 <script type="text/javascript" src="https://asciinema.org/a/22634.js" id="asciicast-22634" async data-autoplay="true" data-speed="1.5"></script>

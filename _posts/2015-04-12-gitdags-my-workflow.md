@@ -2,7 +2,6 @@
 layout: post
 title: My workflow with gitdags
 category: "dev"
-comments: true
 ---
 
 As I [wrote in my last post]({% post_url 2015-04-05-gitdags %}), I like to

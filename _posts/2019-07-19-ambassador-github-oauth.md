@@ -2,7 +2,6 @@
 layout: post
 title: Exposing internal services behind oAuth
 category: "dev"
-comments: true
 ---
 
 Operating web applications can be complicated. Luckily, a number of open source tools are available today to make our lives easier.

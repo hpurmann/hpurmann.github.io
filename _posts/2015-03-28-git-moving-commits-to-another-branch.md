@@ -2,7 +2,6 @@
 layout: post
 title: Moving commits to another branch
 category: "dev"
-comments: true
 ---
 
 Let's say you made a few commits and then realized that you did them to the wrong branch. Because git is awesome, it's really easy to change the branch you committed to.

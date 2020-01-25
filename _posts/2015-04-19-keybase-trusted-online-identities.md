@@ -2,7 +2,6 @@
 layout: post
 title: Trusted online identities
 category: "dev"
-comments: true
 ---
 
 Imagine you could send encrypted text messages to people only knowing their social media username. Imagine you could verify a connection between someone's twitter account and their website.

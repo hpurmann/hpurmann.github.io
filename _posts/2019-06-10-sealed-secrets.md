@@ -2,7 +2,6 @@
 layout: post
 title: Managing secrets the GitOps way
 category: "dev"
-comments: true
 ---
 
 <i>This post is a follow-up on the [Kubernetes and GitOps post]({% post_url 2019-06-02-gitops %}) from previous week.</i>

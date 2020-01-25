@@ -2,7 +2,6 @@
 layout: post
 title: Setting up a personal dotfiles repository
 category: "dev"
-comments: true
 ---
 
 The configuration files in your home directory are called `dotfiles` because of their preceding dot in the file name which makes them hidden. Good examples are

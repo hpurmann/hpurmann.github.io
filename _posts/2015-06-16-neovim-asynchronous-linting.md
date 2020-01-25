@@ -2,7 +2,6 @@
 layout: post
 title: Fast, non-blocking plugin execution with neovim
 category: "dev"
-comments: true
 ---
 
 Recently, I've been working with a bunch of rather big CoffeeScript files. Since I have [coffeelint](http://www.coffeelint.org/) installed, [syntastic](https://github.com/scrooloose/syntastic) is checking the current buffer for possible linting errors on every save. This is slow. *Really* slow. It takes about one second for a 1000 line file.
