@@ -3,9 +3,9 @@ title: About
 permalink: /about/
 ---
 
-<img src="/assets/about.jpg" style="border-radius: 5px" alt="It's me">
+<img src="/assets/about-porto.jpg" style="border-radius: 5px" alt="It's me">
 
-My name is Hendrik Purmann, I'm a Berlin-based software engineer, currently working for [Klarna](https://www.klarna.com).
+My name is Hendrik Purmann, I'm a Berlin-based software engineer, currently working for [Juni](https://www.juni.co).
 
 I love creating software which solves real-world problems. The field is always evolving, there is so much to learn.
 Being able to work from anywhere in the world is liberating.
